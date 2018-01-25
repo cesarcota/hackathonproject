@@ -11,6 +11,11 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
+
+    @Transient
+    private Set<Category> categories=new HashSet<Category>();
+
     @ManyToMany
     private Set<User> users = new HashSet<>();
 
@@ -64,4 +69,13 @@ public class Group {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
+
+    public void addCategory(Category category){
+        this.categories.add(category);
+    }
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+
 }

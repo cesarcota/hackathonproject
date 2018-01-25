@@ -47,7 +47,7 @@
     </bean>
 
     <!--
-    <bean id="sessionManager" class="org.academiadecodigo.bootcamp.Persistence.JPASessionManager"/>
+    <bean groupId="sessionManager" class="org.academiadecodigo.bootcamp.Persistence.JPASessionManager"/>
     -->
 
     <!-- This transactionManager is the one used by spring and not the class that we made -->

@@ -1,7 +1,9 @@
 package org.academiadecodigo.bootcamp.Services;
 
 import org.academiadecodigo.bootcamp.Dao.JPAGroupDao;
-import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
+import org.academiadecodigo.bootcamp.Models.Category;
+import org.academiadecodigo.bootcamp.Models.Group;
+import org.academiadecodigo.bootcamp.Models.Type;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
 
@@ -38,17 +40,17 @@ public class JPAGroupService implements GroupService{
     }
 
     @Override
-    public void addType(Category category, Integer id){
+    public void addType(Category category, Integer groupId){
 
-        Group group=findGroup(id);
+        Group group=findGroup(groupId);
 
-        group.setType(category);
+        group.addCategory(category);
 
         try{
 
             transaction.beginWrite();
 
-            groupDao.addType(group.getType());
+            groupDao.addType(category);
 
             transaction.commit();
 
@@ -80,7 +82,7 @@ public class JPAGroupService implements GroupService{
             transaction.commit();
         }
 
-        return null;
+
     }
 
     @Override

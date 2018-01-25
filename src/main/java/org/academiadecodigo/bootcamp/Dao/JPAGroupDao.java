@@ -1,6 +1,9 @@
 package org.academiadecodigo.bootcamp.Dao;
 
-import jdk.jfr.Category;
+
+import org.academiadecodigo.bootcamp.Models.Category;
+import org.academiadecodigo.bootcamp.Models.Group;
+import org.academiadecodigo.bootcamp.Models.Type;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
 
@@ -8,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
+import java.util.Set;
 
 public class JPAGroupDao implements GroupDao{
 
@@ -25,9 +29,9 @@ public class JPAGroupDao implements GroupDao{
     }
 
     @Override
-    public void addType(List<Group> groupTypes){
+    public void addType(Category category){
 
-        session.getCurrentSession().merge(groupTypes);
+        session.getCurrentSession().merge(category);
 
     }
 
