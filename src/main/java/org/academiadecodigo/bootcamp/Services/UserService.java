@@ -17,6 +17,4 @@ public interface UserService extends Service {
 
     int count();
 
-    List<User> listUsers();
-
 }

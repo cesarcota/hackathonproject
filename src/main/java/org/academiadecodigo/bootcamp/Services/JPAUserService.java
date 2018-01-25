@@ -98,23 +98,15 @@ public class JPAUserService implements UserService {
         transaction.beginRead();
 
         try {
-
             return userDao.count();
-
-
         }catch (NoResultException e){
-
             return  0;
-
         } finally {
             transaction.commit();
         }
     }
 
-    @Override
-    public List<User> listUsers() {
-        return null;
-    }
+
 
 
 }
