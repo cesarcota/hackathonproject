@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 
         userService=(JPAUserService)getServletContext().getAttribute("UserService");
 
-        if(userService.authenticate(name,pass)==false){
+        if(userService.authenticate(name, pass)==false){
             message="Sorry, "+name+" does not exist, or password is not correct";
             req.setAttribute("message",message);
 

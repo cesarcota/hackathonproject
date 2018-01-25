@@ -21,34 +21,12 @@ public class JPAUserDao implements UserDao  {
         this.session=session;
     }
 
-    @Override
-    public boolean authenticate(String pass) {
 
-        TypedQuery<User> query = session.getCurrentSession().createQuery("SELECT user FROM User user WHERE user.password = :pass", User.class);
-        //TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.password = :pass", User.class);
-
-        query.setParameter("pass", pass);
-        return true;
-    }
 
     @Override
     public void saveOrUpdate(User user) {
 
-        //It needs to check if the bootcamp already exists
-        User tempUser=session.getCurrentSession().find(User.class, user.getName());
-        //User tempUser=em.find(User.class, user.getUsername());
-
-        if(tempUser==null){
-
             session.getCurrentSession().merge(user);
-            //em.merge(user);
-
-
-        }else{
-
-            System.out.println("There is already this user in the system");
-        }
-
     }
 
 

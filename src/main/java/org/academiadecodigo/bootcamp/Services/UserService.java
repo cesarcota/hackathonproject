@@ -7,14 +7,15 @@ import java.util.List;
 
 public interface UserService extends Service {
 
-    boolean authenticate( String pass);
+    boolean authenticate(String email, String pass);
 
     void addUser(User user);
 
     User findByName(String name);
 
+    User findByEmail(String email);
+
     int count();
 
-    List<User> listUsers();
 
 }
