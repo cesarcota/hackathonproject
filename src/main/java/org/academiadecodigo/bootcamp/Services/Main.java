@@ -22,11 +22,13 @@ public class Main extends Application{
         JPAUserService userService= new JPAUserService();
 
 
+
+/*
         userService.addUser(new User("luis","12345","luis@gmail.com"));
         userService.addUser(new User("ana","12345","ana@gmail.com"));
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
-
-
+*/
+emf.close();
 
     }
 

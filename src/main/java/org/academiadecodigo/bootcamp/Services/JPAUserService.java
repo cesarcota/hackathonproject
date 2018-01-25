@@ -65,6 +65,7 @@ public class JPAUserService implements UserService {
         if (name.isEmpty() || name == null){
             return null;
         }
+        System.out.println(name);
         transaction.beginRead();
         try {
             return userDao.findByName(name);

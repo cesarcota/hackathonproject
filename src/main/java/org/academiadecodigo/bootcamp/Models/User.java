@@ -1,6 +1,8 @@
 package org.academiadecodigo.bootcamp.Models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -8,17 +10,24 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+
     private String username;
     private String pass;
     private String email;
-    private Integer id;
-    @ManyToMany
-    private Group group;
+    @ManyToMany(
+            fetch = FetchType.EAGER
+    )
+    private Set<Group> groups;
+
+
 
     public User(String username, String pass, String email){
         this.username=username;
         this.pass=pass;
         this.email = email;
+        this.groups = new HashSet<>();
     }
 
     public User() {
@@ -35,7 +44,7 @@ public class User {
         if (!pass.equals(user.pass)) return false;
         if (!email.equals(user.email)) return false;
         if (!id.equals(user.id)) return false;
-        return group.equals(user.group);
+        return groups.equals(user.groups);
     }
 
     @Override
@@ -44,7 +53,7 @@ public class User {
         result = 31 * result + pass.hashCode();
         result = 31 * result + email.hashCode();
         result = 31 * result + id.hashCode();
-        result = 31 * result + group.hashCode();
+        result = 31 * result + groups.hashCode();
         return result;
     }
 
@@ -72,12 +81,20 @@ public class User {
         this.id = id;
     }
 
-    public Group getGroup() {
-        return group;
+    public String getPass() {
+        return pass;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void addGroup(Group group){
+        groups.add(group);
     }
 
     public String getName() {
@@ -96,6 +113,9 @@ public class User {
         this.pass = pass;
     }
 
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
 
 
 }
