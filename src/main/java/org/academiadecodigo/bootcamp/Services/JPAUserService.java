@@ -24,7 +24,7 @@ public class JPAUserService implements UserService {
     }
 
     @Override
-    public boolean authenticate(String pass) {
+    public boolean authenticate(String username,String pass) {
 
         try {
 

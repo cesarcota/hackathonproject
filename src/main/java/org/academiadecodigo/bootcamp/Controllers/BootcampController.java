@@ -53,7 +53,7 @@ public class BootcampController extends HttpServlet {
     }
 
     private void loadInfo(HttpServletRequest req, HttpServletResponse resp, String attribute) throws ServletException, IOException {
-
+/*
         if (attribute.equals("Users")) {
             UserService userService = (MockUserService) getServletContext().getAttribute("UserService");
 
@@ -74,7 +74,7 @@ public class BootcampController extends HttpServlet {
         RequestDispatcher page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/bootcamp.jsp");
         page1Dispatcher.forward(req, resp);
 
-
+*/
     }
 
 

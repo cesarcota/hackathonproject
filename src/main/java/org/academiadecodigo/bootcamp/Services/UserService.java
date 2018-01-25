@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface UserService extends Service {
 
-    boolean authenticate( String pass);
+    boolean authenticate(String username, String pass);
 
     void addUser(User user);
 

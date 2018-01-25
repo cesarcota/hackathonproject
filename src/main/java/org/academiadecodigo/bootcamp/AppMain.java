@@ -11,6 +11,8 @@ import javax.servlet.ServletContextListener;
 public class AppMain implements ServletContextListener {
 
 
+
+
     @Override
     public void contextInitialized(ServletContextEvent sce){
         //Get the servlet context from context event
@@ -24,9 +26,9 @@ public class AppMain implements ServletContextListener {
         ctx.setAttribute("UserService",userService);
 
         //Add the users
-        userService.addUser(new User("luis","12345"));
-        userService.addUser(new User("ana","12345"));
-        userService.addUser(new User("ricardo","12345"));
+        userService.addUser(new User("luis","12345","luis@gmail.com"));
+        userService.addUser(new User("ana","12345","ana@gmail.com"));
+        userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
 
 
         /*
