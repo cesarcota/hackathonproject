@@ -72,10 +72,7 @@
       <version>1.0.0.Final</version>
     </dependency>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> development
 
     <dependency>
       <groupId>org.hibernate</groupId>
