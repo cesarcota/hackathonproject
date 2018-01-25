@@ -5,7 +5,6 @@ import org.academiadecodigo.bootcamp.Models.User;
 
 public interface UserDao extends Dao {
 
-    boolean authenticate(String pass);
 
     void saveOrUpdate(User user);
 
