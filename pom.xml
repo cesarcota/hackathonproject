@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.academiadecodigo.bootcamp</groupId>
-  <artifactId>work</artifactId>
+  <artifactId>hackathon</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>work Maven Webapp</name>
@@ -111,7 +111,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>org.academiadecodigo.bootcamp.Main</mainClass>
+              <mainClass>org.academiadecodigo.bootcamp.Services.Main</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>jar-with-dependencies</descriptorRefs>

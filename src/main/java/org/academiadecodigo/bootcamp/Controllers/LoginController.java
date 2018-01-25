@@ -13,11 +13,17 @@ import java.io.IOException;
 public class LoginController extends HttpServlet {
 
     private UserService userService;
+    private RequestDispatcher page1Dispatcher;
+
+    @Override
+    public void init() throws ServletException {
+        page1Dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+        this.userService=(JPAUserService)getServletContext().getAttribute("UserService");
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Create request dispatcher wrappers around the views
-        RequestDispatcher page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
 
         page1Dispatcher.forward(req,resp);
     }
@@ -29,13 +35,12 @@ public class LoginController extends HttpServlet {
         String pass= req.getParameter("password");
         String message;
 
-        userService=(JPAUserService)getServletContext().getAttribute("UserService");
+
 
         if(userService.authenticate(name, pass)==false){
             message="Sorry, "+name+" does not exist, or password is not correct";
             req.setAttribute("message",message);
 
-            RequestDispatcher page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
             page1Dispatcher.forward(req,resp);
 
         }else{
@@ -47,7 +52,7 @@ public class LoginController extends HttpServlet {
             //Save the user for this session
             req.getSession().setAttribute("user",userService.findByName(name));
 
-            resp.sendRedirect("/webBootcamp/bootcamp");
+            //resp.sendRedirect("/webBootcamp/bootcamp");
 
 
         }
