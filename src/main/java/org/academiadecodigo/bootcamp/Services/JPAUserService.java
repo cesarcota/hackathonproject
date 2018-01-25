@@ -3,13 +3,13 @@ package org.academiadecodigo.bootcamp.Services;
 import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import javax.persistence.NoResultException;
 import javax.persistence.RollbackException;
 import java.util.List;
 
-@Transactional
+
 public class JPAUserService implements UserService {
 
     private JPATransactionManager transaction;
