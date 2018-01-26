@@ -10,7 +10,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.RollbackException;
 import java.util.List;
 
-public class   JPAGroupService implements GroupService{
+public class JPAGroupService implements GroupService{
 
     private TransactionManager transaction;
     private GroupDao groupDao;
@@ -66,13 +66,17 @@ public class   JPAGroupService implements GroupService{
     }
 
     @Override
-    public void addUser(User user, Group group) {
+    public void addUser(User user, String name) {
+
+        Group group=findGroup(name);
+
+        group.addUser(user);
+
+        user.addGroup(group);
 
         try{
 
             transaction.beginWrite();
-
-            group.addUser(user);
 
             groupDao.addUser(user);
 

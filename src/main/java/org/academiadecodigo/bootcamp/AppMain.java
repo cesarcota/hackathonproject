@@ -18,6 +18,8 @@ import javax.persistence.Persistence;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AppMain implements ServletContextListener {
 
@@ -57,12 +59,26 @@ public class AppMain implements ServletContextListener {
         userService.addUser(new User("ana","12345","ana@gmail.com"));
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
 
+        User manel = new User("manel","12345","manel@gmail.com");
+        Group test = new Group("Test");
+        groupService.addGroup(test);
+        //manel.addGroup(test);
+        groupService.addUser(manel,"Test");
+
+
+        /*
         User user = new User("cesar", "cesar", "cesar");
         //user.addGroup(new Group("group1"));
         userService.addUser(user);
 
         Group test = new Group("Test");
         groupService.addGroup(test);
+        groupService.addUser(user,"Test");
+
+*/
+
+        //List<User> list = new LinkedList<>(groupService.findGroup("Test").getUsers());
+
 
         /*
         //This uses the JPA

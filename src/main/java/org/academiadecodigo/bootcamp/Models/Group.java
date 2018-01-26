@@ -17,11 +17,12 @@ public class Group {
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Category> categories=new HashSet<Category>();
 
-    @OneToMany
-    private Set<User> users = new HashSet<>();
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<User> users;
 
     public Group(String name) {
         this.groupName = name;
+        this.users=new HashSet<User>();
     }
 
     public Group() {

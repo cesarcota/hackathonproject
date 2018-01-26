@@ -23,6 +23,12 @@
 <div class="container">
     <h2>Bootcamps</h2>
 
+    <ul>
+        <c:forEach var="group" items="${userGroup}">
+            <li>${group.groupName} </li>
+        </c:forEach>
+    </ul>
+
     <table class="table table-hover">
         <thead>
         <tr>

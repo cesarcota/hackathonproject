@@ -13,7 +13,7 @@ public interface GroupService  extends Service{
 
     void addType(Category category, String name);
 
-    void addUser(User user, Group group);
+    void addUser(User user, String name);
 
     Group findGroup(String name);
 

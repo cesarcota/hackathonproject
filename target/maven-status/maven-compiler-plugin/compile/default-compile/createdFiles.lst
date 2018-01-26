@@ -1,5 +1,7 @@
 org/academiadecodigo/bootcamp/Controllers/DashboardController.class
+org/academiadecodigo/bootcamp/AppMain.class
 org/academiadecodigo/bootcamp/Controllers/GroupController.class
 org/academiadecodigo/bootcamp/Controllers/RegisterController.class
 org/academiadecodigo/bootcamp/Controllers/GroupStats.class
 org/academiadecodigo/bootcamp/Controllers/GroupNewController.class
+org/academiadecodigo/bootcamp/Services/JPAGroupService.class

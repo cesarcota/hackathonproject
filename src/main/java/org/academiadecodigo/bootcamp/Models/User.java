@@ -52,7 +52,7 @@ public class User {
         int result = username.hashCode();
         result = 31 * result + pass.hashCode();
         result = 31 * result + email.hashCode();
-        result = 31 * result + id.hashCode();
+        //result = 31 * result + id.hashCode();
         result = 31 * result + groups.hashCode();
         return result;
     }
