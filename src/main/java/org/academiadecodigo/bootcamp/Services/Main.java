@@ -16,19 +16,31 @@ public class Main extends Application{
 
         emf = Persistence.createEntityManagerFactory("hackathon");
         //JPAUserDao. So, we create an object of these types, passing the session manager
-        JPASessionManager session = new JPASessionManager();
+        JPASessionManager session = new JPASessionManager(emf);
         JPATransactionManager transaction = new JPATransactionManager(session);
         JPAUserDao userDao = new JPAUserDao(session);
-        JPAUserService userService= new JPAUserService();
+        JPAUserService userService= new JPAUserService(transaction, userDao);
 
 
-
-/*
+        User cesar = new User("cesar", "cesar", "cesar@cesar.com");
+        userService.addUser(cesar);
         userService.addUser(new User("luis","12345","luis@gmail.com"));
         userService.addUser(new User("ana","12345","ana@gmail.com"));
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
-*/
-emf.close();
+
+        System.out.println("authenticate must be true: " + userService.authenticate("cesar@cesar.com", "cesar"));
+        System.out.println("findByE-mail must return a user: " + userService.findByEmail(cesar.getEmail()).getEmail());
+
+
+
+
+
+
+
+        emf.close();
+
+
+
 
     }
 

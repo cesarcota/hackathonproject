@@ -35,12 +35,8 @@ public class LoginController extends HttpServlet {
         String pass = req.getParameter("password");
         String message;
 
-        if (email.isEmpty() || pass.isEmpty()) {
-            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
-            page1Dispatcher.forward(req, resp);
-            return;
-        }
-        if (!userService.authenticate(email, pass)) {
+
+        if (  userService.findByEmail(email) == null || !userService.authenticate(email, pass)) {
             message = "Sorry, " + email + " does not exist, or password is not correct";
             req.setAttribute("message", message);
             page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
