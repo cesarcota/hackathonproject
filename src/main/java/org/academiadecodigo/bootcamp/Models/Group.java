@@ -8,15 +8,15 @@ import java.util.Set;
 @Table(name = "groups")
 public class Group {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
 
 
-    @Transient
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Category> categories=new HashSet<Category>();
 
-    @ManyToMany
+    @OneToMany
     private Set<User> users = new HashSet<>();
 
     public Group(String name) {

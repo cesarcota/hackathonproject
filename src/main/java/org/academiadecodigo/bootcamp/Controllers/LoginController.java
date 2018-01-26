@@ -21,10 +21,7 @@ public class LoginController extends HttpServlet {
         this.userService=(JPAUserService)getServletContext().getAttribute("UserService");
     }
 
-    @Override
-    public void init() throws ServletException {
-        userService = (UserService) getServletContext().getContext(UserService.class.getSimpleName());
-    }
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

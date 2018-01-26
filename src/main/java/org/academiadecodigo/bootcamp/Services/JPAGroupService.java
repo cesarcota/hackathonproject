@@ -1,11 +1,10 @@
 package org.academiadecodigo.bootcamp.Services;
 
-import org.academiadecodigo.bootcamp.Dao.JPAGroupDao;
+import org.academiadecodigo.bootcamp.Dao.GroupDao;
 import org.academiadecodigo.bootcamp.Models.Category;
 import org.academiadecodigo.bootcamp.Models.Group;
-import org.academiadecodigo.bootcamp.Models.Type;
 import org.academiadecodigo.bootcamp.Models.User;
-import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
+import org.academiadecodigo.bootcamp.Persistence.TransactionManager;
 
 import javax.persistence.NoResultException;
 import javax.persistence.RollbackException;
@@ -13,10 +12,10 @@ import java.util.List;
 
 public class JPAGroupService implements GroupService{
 
-    private JPATransactionManager transaction;
-    private JPAGroupDao groupDao;
+    private TransactionManager transaction;
+    private GroupDao groupDao;
 
-    public JPAGroupService( JPATransactionManager transaction,JPAGroupDao groupDao){//
+    public JPAGroupService( TransactionManager transaction,GroupDao groupDao){//
         this.transaction=transaction;
         this.groupDao=groupDao;
     }

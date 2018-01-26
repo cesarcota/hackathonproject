@@ -1,10 +1,11 @@
 package org.academiadecodigo.bootcamp.Models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "Categories")
-public class Categories {
+@Table(name = "category")
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,32 +14,14 @@ public class Categories {
     @Enumerated(EnumType.STRING)
     private Type type;
 
-    public Categories(Integer id, Type type) {
-        this.id = id;
+
+    public Category( Type type) {
         this.type = type;
     }
 
-    public Categories(Type type) {
-        this.type = type;
-    }
+    public Category(){}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Categories that = (Categories) o;
-
-        if (!id.equals(that.id)) return false;
-        return type == that.type;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + type.hashCode();
-        return result;
-    }
 
     public Integer getId() {
         return id;
@@ -55,4 +38,6 @@ public class Categories {
     public void setType(Type type) {
         this.type = type;
     }
+
+
 }
