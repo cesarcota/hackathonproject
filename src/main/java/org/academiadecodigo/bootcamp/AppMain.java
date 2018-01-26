@@ -3,11 +3,15 @@ package org.academiadecodigo.bootcamp;
 import org.academiadecodigo.bootcamp.Dao.GroupDao;
 import org.academiadecodigo.bootcamp.Dao.JPAGroupDao;
 import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
+import org.academiadecodigo.bootcamp.Dao.UserDao;
 import org.academiadecodigo.bootcamp.Models.Group;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
+import org.academiadecodigo.bootcamp.Services.GroupService;
+import org.academiadecodigo.bootcamp.Services.JPAGroupService;
 import org.academiadecodigo.bootcamp.Services.JPAUserService;
+import org.academiadecodigo.bootcamp.Services.UserService;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -29,9 +33,10 @@ public class AppMain implements ServletContextListener {
         //JPAUserDao. So, we create an object of these types, passing the session manager
         JPASessionManager session = new JPASessionManager(emf);
         JPATransactionManager transaction = new JPATransactionManager(session);
-        JPAUserDao userDao = new JPAUserDao(session);
+        UserDao userDao = new JPAUserDao(session);
         GroupDao groupDao = new JPAGroupDao(session);
-        JPAUserService userService= new JPAUserService(transaction,userDao);
+        UserService userService= new JPAUserService(transaction,userDao);
+        GroupService groupService = new JPAGroupService(transaction,groupDao);
 
 
 
@@ -55,6 +60,9 @@ public class AppMain implements ServletContextListener {
         User user = new User("cesar", "cesar", "cesar");
         //user.addGroup(new Group("group1"));
         userService.addUser(user);
+
+        Group test = new Group("Test");
+        groupService.addGroup(test);
 
         /*
         //This uses the JPA

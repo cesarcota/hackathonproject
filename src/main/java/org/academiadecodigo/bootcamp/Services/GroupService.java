@@ -2,7 +2,6 @@ package org.academiadecodigo.bootcamp.Services;
 
 import org.academiadecodigo.bootcamp.Models.Category;
 import org.academiadecodigo.bootcamp.Models.Group;
-import org.academiadecodigo.bootcamp.Models.Type;
 import org.academiadecodigo.bootcamp.Models.User;
 
 import java.util.List;

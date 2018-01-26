@@ -3,7 +3,6 @@ package org.academiadecodigo.bootcamp.Dao;
 
 import org.academiadecodigo.bootcamp.Models.Category;
 import org.academiadecodigo.bootcamp.Models.Group;
-import org.academiadecodigo.bootcamp.Models.Type;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
 
@@ -11,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.Set;
 
 public class JPAGroupDao implements GroupDao{
 
@@ -19,6 +17,10 @@ public class JPAGroupDao implements GroupDao{
 
     @PersistenceContext
     private EntityManager em;
+
+    public JPAGroupDao(JPASessionManager session){
+        this.session=session;
+    }
 
 
     @Override

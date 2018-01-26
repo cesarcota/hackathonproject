@@ -13,10 +13,11 @@ public class Group {
     private String groupName;
 
 
-    @Transient
+
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Category> categories=new HashSet<Category>();
 
-    @ManyToMany
+    @OneToMany
     private Set<User> users = new HashSet<>();
 
     public Group(String name) {
