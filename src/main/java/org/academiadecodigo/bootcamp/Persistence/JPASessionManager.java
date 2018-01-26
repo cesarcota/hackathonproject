@@ -11,6 +11,12 @@ public class JPASessionManager {
     private EntityManagerFactory emf;//= ServiceRegistry.getInstance().getEmf();
     private EntityManager em;
 
+    public JPASessionManager(EntityManagerFactory emf) {
+        this.emf = emf;
+
+    }
+
+    public JPASessionManager(){}
 
     public void startSession() {
 

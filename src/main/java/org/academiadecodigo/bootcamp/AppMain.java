@@ -1,9 +1,15 @@
 package org.academiadecodigo.bootcamp;
 
+import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
+import org.academiadecodigo.bootcamp.Dao.UserDao;
 import org.academiadecodigo.bootcamp.Models.User;
+import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
+import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
 import org.academiadecodigo.bootcamp.Services.JPAUserService;
 import org.academiadecodigo.bootcamp.Services.UserService;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,8 +24,20 @@ public class AppMain implements ServletContextListener {
         //Get the servlet context from context event
         ServletContext ctx = sce.getServletContext();
 
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("hackathon");
+        //JPAUserDao. So, we create an object of these types, passing the session manager
+        JPASessionManager session = new JPASessionManager(emf);
+        JPATransactionManager transaction = new JPATransactionManager(session);
+        JPAUserDao userDao = new JPAUserDao(session);
+        JPAUserService userService= new JPAUserService(transaction,userDao);
+
+
+
+
+
+
         //Instantiate the objects and make the wire
-        UserService userService=new JPAUserService();
+        //UserService userService = new JPAUserService();
         //BootcampService bootcampService=new MockBootcampService();
 
         //Make the services available to all the app
