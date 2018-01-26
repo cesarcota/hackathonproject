@@ -1,5 +1,6 @@
 package org.academiadecodigo.bootcamp.Controllers;
 
+import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Services.JPAUserService;
 import org.academiadecodigo.bootcamp.Services.UserService;
 
@@ -33,10 +34,42 @@ public class LoginController extends HttpServlet {
 
         String email = req.getParameter("email");
         String pass = req.getParameter("password");
+        String username = req.getParameter("username");
         String message;
 
 
-        if (  userService.findByEmail(email) == null || !userService.authenticate(email, pass)) {
+        if (username.isEmpty()) {
+
+
+
+            if (userService.findByEmail(email) == null || !userService.authenticate(email, pass)) {
+                message = "Sorry, " + email + " does not exist, or password is not correct";
+                req.setAttribute("message", message);
+                page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+                page1Dispatcher.forward(req, resp);
+                return;
+            }
+
+
+            //Save the user for this session
+            req.getSession().setAttribute("user", userService.findByEmail(email));
+
+
+            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp");
+            page1Dispatcher.forward(req, resp);
+
+            return;
+        }
+
+
+
+        if (email.isEmpty() || pass.isEmpty()) {
+            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/register.jsp");
+            page1Dispatcher.forward(req, resp);
+            return;
+        }
+
+        if (userService.findByEmail(email) != null || userService.findByName(username) != null) {
             message = "Sorry, " + email + " does not exist, or password is not correct";
             req.setAttribute("message", message);
             page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
@@ -45,13 +78,17 @@ public class LoginController extends HttpServlet {
         }
 
 
+        userService.addUser(new User(username, pass, email));
+
         //Save the user for this session
-        req.getSession().setAttribute("user", userService.findByEmail(email));
 
-
-        page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp");
+        page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
         page1Dispatcher.forward(req, resp);
 
 
+
+
     }
+
+
 }
