@@ -29,9 +29,13 @@ public class JPAUserService implements UserService {
     @Override
     public boolean authenticate(String email, String pass) {
         User user = findByEmail(email);
+
         if (user == null){
-        return false;
+            return false;
         }
+
+
+
         return user.getEmail().equals(email) && user.getPassword().equals(pass);
     }
 
@@ -67,7 +71,6 @@ public class JPAUserService implements UserService {
         if (name.isEmpty() || name == null){
             return null;
         }
-        System.out.println(name);
         transaction.beginRead();
         try {
             return userDao.findByName(name);
@@ -86,7 +89,8 @@ public class JPAUserService implements UserService {
         }
         transaction.beginRead();
         try {
-            return userDao.findByName(email);
+
+            return userDao.findByEmail(email);
         }catch (NoResultException e){
 
             return null;

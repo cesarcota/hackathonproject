@@ -8,6 +8,9 @@ import java.util.Set;
 @Table(name = "groups")
 public class Group {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer groupId;
+    private String groupName;
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
@@ -20,7 +23,7 @@ public class Group {
     private Set<User> users = new HashSet<>();
 
     public Group(String name) {
-        this.name = name;
+        this.groupName = name;
     }
 
     public Group() {
@@ -33,33 +36,33 @@ public class Group {
 
         Group group = (Group) o;
 
-        if (!id.equals(group.id)) return false;
-        if (!name.equals(group.name)) return false;
+        if (!groupId.equals(group.groupId)) return false;
+        if (!groupName.equals(group.groupName)) return false;
         return users.equals(group.users);
     }
 
     @Override
     public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + name.hashCode();
+        int result = groupId.hashCode();
+        result = 31 * result + groupName.hashCode();
         result = 31 * result + users.hashCode();
         return result;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getGroupId() {
+        return groupId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setGroupId(Integer id) {
+        this.groupId = id;
     }
 
-    public String getName() {
-        return name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setGroupName(String name) {
+        this.groupName = name;
     }
 
     public Set<User> getUsers() {

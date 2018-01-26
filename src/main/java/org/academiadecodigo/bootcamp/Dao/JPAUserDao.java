@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 
-public class JPAUserDao implements UserDao  {
+public class JPAUserDao implements UserDao {
 
 
     private JPASessionManager session;
@@ -17,18 +17,16 @@ public class JPAUserDao implements UserDao  {
     @PersistenceContext
     private EntityManager em;
 
-    public JPAUserDao(JPASessionManager session){//
-        this.session=session;
+    public JPAUserDao(JPASessionManager session) {
+        this.session = session;
     }
-
 
 
     @Override
     public void saveOrUpdate(User user) {
 
-            session.getCurrentSession().merge(user);
+        session.getCurrentSession().merge(user);
     }
-
 
 
     @Override
@@ -49,5 +47,16 @@ public class JPAUserDao implements UserDao  {
 
 
         return query.getResultList().size();
+    }
+
+    @Override
+    public User findByEmail(String email) {
+
+        TypedQuery<User> query = session.getCurrentSession().createQuery("SELECT user FROM User user WHERE user.email = :email", User.class);
+        //TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.username = :name", User.class);
+
+        query.setParameter("email", email);
+
+        return query.getSingleResult();
     }
 }

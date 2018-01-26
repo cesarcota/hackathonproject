@@ -39,7 +39,7 @@ public class JPAGroupDao implements GroupDao{
 
     @Override
     public Group findById(Integer id) {
-        TypedQuery<Group> query = session.getCurrentSession().createQuery("SELECT group FROM Group group WHERE group.id = :id", Group.class);
+        TypedQuery<Group> query = session.getCurrentSession().createQuery("SELECT group FROM Group group WHERE group.groupId = :id", Group.class);
         //TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.password = :pass", User.class);
 
         query.setParameter("id", id);

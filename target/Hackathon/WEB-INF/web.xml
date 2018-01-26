@@ -4,27 +4,80 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-  <display-name>hackathon</display-name>
+    <display-name>hackathon</display-name>
 
-  <listener>
-    <listener-class>org.academiadecodigo.bootcamp.AppMain</listener-class>
-  </listener>
+    <listener>
+        <listener-class>org.academiadecodigo.bootcamp.AppMain</listener-class>
+    </listener>
 
-  <servlet>
+    <servlet>
     <servlet-name>Login</servlet-name>
     <servlet-class>org.academiadecodigo.bootcamp.Controllers.LoginController</servlet-class>
-  </servlet>
+</servlet>
 
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern></url-pattern>
   </servlet-mapping>
-
   <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.html</url-pattern>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
   </servlet-mapping>
-  
 
+
+    <servlet>
+        <servlet-name>register</servlet-name>
+        <servlet-class>org.academiadecodigo.bootcamp.Controllers.RegisterController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dashboard</servlet-name>
+        <servlet-class>org.academiadecodigo.bootcamp.Controllers.DashboardController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>group</servlet-name>
+        <servlet-class>org.academiadecodigo.bootcamp.Controllers.GroupController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>group</servlet-name>
+        <url-pattern>/group</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>groupNew</servlet-name>
+        <servlet-class>org.academiadecodigo.bootcamp.Controllers.GroupNewController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>groupNew</servlet-name>
+        <url-pattern>/groupNew</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>groupStats</servlet-name>
+        <servlet-class>org.academiadecodigo.bootcamp.Controllers.GroupStats</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>groupStats</servlet-name>
+        <url-pattern>/groupStats</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
 
 </web-app>

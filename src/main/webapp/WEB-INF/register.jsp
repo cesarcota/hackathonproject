@@ -9,7 +9,7 @@
 <%@ page import="org.academiadecodigo.bootcamp.Controllers.LoginController" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>Sign up</title>
 </head>
 <body>
 
@@ -17,10 +17,11 @@
 </br>
 
 <!-- Put the name and password -->
-<form method="post" action="Login">
-    <p>Email: <input type="text" name="email"/></p>
+<form method="post" action="Register">
+    <p>username: <input type="text" name="username"/></p>
+    <p>email: <input type="text" name="email"/></p>
     <p>password:<input type="password" name="password"/></p>
-    <p><input type="submit" value="Login"/></p>
+    <p><input type="submit" value="Register"/></p>
 </form>
 
 <!-- Condition to make the message appears when the login is not right -->

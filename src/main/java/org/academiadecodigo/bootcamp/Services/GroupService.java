@@ -15,7 +15,7 @@ public interface GroupService  extends Service{
 
     Group findGroup(Integer id);
 
-    List<User> findUser();
+    List<User> findAll();
 
 
 }

@@ -1,12 +1,10 @@
 package org.academiadecodigo.bootcamp;
 
 import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
-import org.academiadecodigo.bootcamp.Dao.UserDao;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
 import org.academiadecodigo.bootcamp.Services.JPAUserService;
-import org.academiadecodigo.bootcamp.Services.UserService;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -48,6 +46,8 @@ public class AppMain implements ServletContextListener {
         userService.addUser(new User("ana","12345","ana@gmail.com"));
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
 
+        User user = new User("cesar", "cesar", "cesar");
+        userService.addUser(user);
 
         /*
         //This uses the JPA

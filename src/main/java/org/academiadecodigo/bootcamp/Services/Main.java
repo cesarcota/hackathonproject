@@ -43,6 +43,8 @@ public class Main extends Application{
         groupService.addGroup(new Group("Baroes"));
         groupService.addGroup(cagoes);
 
+
+        /*
         System.out.println("NAME "+cagoes.getName());
         System.out.println("ID "+cagoes.getId());
         System.out.println("ID "+yes.getId());
@@ -50,7 +52,7 @@ public class Main extends Application{
         Category beer = new Category(Type.BEER);
         groupService.addType(beer,cagoes.getId());
 
-
+*/
         emf.close();
 
     }

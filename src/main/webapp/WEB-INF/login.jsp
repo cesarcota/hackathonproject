@@ -18,7 +18,7 @@
 
 <!-- Put the name and password -->
 <form method="post" action="Login">
-    <p>username: <input type="text" name="username"/></p>
+    <p>Email: <input type="text" name="email"/></p>
     <p>password:<input type="password" name="password"/></p>
     <p><input type="submit" value="Login"/></p>
 </form>

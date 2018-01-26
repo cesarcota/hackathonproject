@@ -12,4 +12,5 @@ public interface UserDao extends Dao {
 
     int count();
 
+    User findByEmail(String email);
 }
