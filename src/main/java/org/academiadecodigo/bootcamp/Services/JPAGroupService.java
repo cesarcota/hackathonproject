@@ -65,6 +65,26 @@ public class   JPAGroupService implements GroupService{
 
     }
 
+    @Override
+    public void addUser(User user, Group group) {
+
+        try{
+
+            transaction.beginWrite();
+
+            group.addUser(user);
+
+            groupDao.addUser(user);
+
+            transaction.commit();
+
+        }catch(RollbackException e){
+
+            transaction.rollback();
+        }
+
+    }
+
 
     @Override
     public Group findGroup(String name) {

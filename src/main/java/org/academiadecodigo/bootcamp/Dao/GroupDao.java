@@ -12,6 +12,8 @@ public interface GroupDao extends Dao{
 
     void addType(Category category);
 
+    void addUser(User user);
+
     Group findByName(String name);
 
     List<User> findAll();

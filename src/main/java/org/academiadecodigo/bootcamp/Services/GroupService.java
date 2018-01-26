@@ -13,6 +13,8 @@ public interface GroupService  extends Service{
 
     void addType(Category category, String name);
 
+    void addUser(User user, Group group);
+
     Group findGroup(String name);
 
     List<User> findAll();
