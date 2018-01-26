@@ -1,6 +1,9 @@
 package org.academiadecodigo.bootcamp;
 
+import org.academiadecodigo.bootcamp.Dao.GroupDao;
+import org.academiadecodigo.bootcamp.Dao.JPAGroupDao;
 import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
+import org.academiadecodigo.bootcamp.Models.Group;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPASessionManager;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
@@ -27,7 +30,10 @@ public class AppMain implements ServletContextListener {
         JPASessionManager session = new JPASessionManager(emf);
         JPATransactionManager transaction = new JPATransactionManager(session);
         JPAUserDao userDao = new JPAUserDao(session);
+        GroupDao groupDao = new JPAGroupDao(session);
         JPAUserService userService= new JPAUserService(transaction,userDao);
+
+
 
 
 
@@ -47,6 +53,7 @@ public class AppMain implements ServletContextListener {
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
 
         User user = new User("cesar", "cesar", "cesar");
+        //user.addGroup(new Group("group1"));
         userService.addUser(user);
 
         /*

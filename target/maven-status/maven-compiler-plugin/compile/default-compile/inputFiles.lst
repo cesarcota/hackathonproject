@@ -1,9 +1,5 @@
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Controllers/RegisterController.java
-/Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Dao/JPAGroupDao.java
-/Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Controllers/RegisterController.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Controllers/LoginController.java
-/Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Dao/UserDao.java
-/Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Models/Group.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Services/JPAUserService.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Services/UserService.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Persistence/JPASessionManager.java
@@ -18,7 +14,6 @@
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Dao/JPAUserDao.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Services/Main.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Dao/JPAGroupDao.java
-/Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Controllers/BootcampController.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Dao/UserDao.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Models/Group.java
 /Users/codecadet/workspace/hackathonproject/src/main/java/org/academiadecodigo/bootcamp/Controllers/DashboardController.java
