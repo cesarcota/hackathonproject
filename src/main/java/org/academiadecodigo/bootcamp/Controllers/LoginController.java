@@ -22,6 +22,11 @@ public class LoginController extends HttpServlet {
     }
 
     @Override
+    public void init() throws ServletException {
+        userService = (UserService) getServletContext().getContext(UserService.class.getSimpleName());
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Create request dispatcher wrappers around the views
 
