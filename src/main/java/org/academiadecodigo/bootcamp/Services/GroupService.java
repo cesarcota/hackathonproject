@@ -11,9 +11,11 @@ public interface GroupService  extends Service{
 
     void addGroup(Group group);
 
-    void addType(Category category, Integer id);
+    void addType(Category category, String name);
 
-    Group findGroup(Integer id);
+    void addUser(User user, Group group);
+
+    Group findGroup(String name);
 
     List<User> findAll();
 

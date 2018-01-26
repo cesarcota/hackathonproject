@@ -12,7 +12,9 @@ public interface GroupDao extends Dao{
 
     void addType(Category category);
 
-    Group findById(Integer id);
+    void addUser(User user);
+
+    Group findByName(String name);
 
     List<User> findAll();
 

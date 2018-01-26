@@ -74,6 +74,11 @@ public class Group {
     public void addCategory(Category category){
         this.categories.add(category);
     }
+
+    public void addUser(User user){
+        this.users.add(user);
+    }
+
     public Set<Category> getCategories() {
         return categories;
     }
