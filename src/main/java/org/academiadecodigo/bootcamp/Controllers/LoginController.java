@@ -15,6 +15,11 @@ public class LoginController extends HttpServlet {
     private UserService userService;
 
     @Override
+    public void init() throws ServletException {
+        userService = (UserService) getServletContext().getContext(UserService.class.getSimpleName());
+    }
+
+    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Create request dispatcher wrappers around the views
         RequestDispatcher page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
