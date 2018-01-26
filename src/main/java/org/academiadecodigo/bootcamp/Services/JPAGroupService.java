@@ -43,9 +43,9 @@ public class   JPAGroupService implements GroupService{
     }
 
     @Override
-    public void addType(Category category, Integer groupId){
+    public void addType(Category category, String name){
 
-        Group group=findGroup(groupId);
+        Group group=findGroup(name);
 
         group.addCategory(category);
 
@@ -67,7 +67,7 @@ public class   JPAGroupService implements GroupService{
 
 
     @Override
-    public Group findGroup(Integer id) {
+    public Group findGroup(String name) {
 
 
         transaction.beginRead();
@@ -75,7 +75,7 @@ public class   JPAGroupService implements GroupService{
 
         try {
 
-            return groupDao.findById(id);
+            return groupDao.findByName(name);
 
         }catch (NoResultException e){
 
