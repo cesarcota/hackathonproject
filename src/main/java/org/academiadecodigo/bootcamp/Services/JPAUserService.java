@@ -1,8 +1,10 @@
 package org.academiadecodigo.bootcamp.Services;
 
 import org.academiadecodigo.bootcamp.Dao.JPAUserDao;
+import org.academiadecodigo.bootcamp.Dao.UserDao;
 import org.academiadecodigo.bootcamp.Models.User;
 import org.academiadecodigo.bootcamp.Persistence.JPATransactionManager;
+import org.academiadecodigo.bootcamp.Persistence.TransactionManager;
 
 
 import javax.persistence.NoResultException;
@@ -12,10 +14,10 @@ import java.util.List;
 
 public class JPAUserService implements UserService {
 
-    private JPATransactionManager transaction;
-    private JPAUserDao userDao;
+    private TransactionManager transaction;
+    private UserDao userDao;
 
-    public JPAUserService( JPATransactionManager transaction,JPAUserDao userDao){//
+    public JPAUserService( TransactionManager transaction,UserDao userDao){//
         this.transaction=transaction;
         this.userDao=userDao;
     }

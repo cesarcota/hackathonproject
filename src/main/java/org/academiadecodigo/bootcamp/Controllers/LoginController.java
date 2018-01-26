@@ -17,51 +17,44 @@ public class LoginController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        page1Dispatcher=getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
-        this.userService=(JPAUserService)getServletContext().getAttribute("UserService");
+        page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+        this.userService = (JPAUserService) getServletContext().getAttribute("UserService");
     }
 
-    @Override
-    public void init() throws ServletException {
-        userService = (UserService) getServletContext().getContext(UserService.class.getSimpleName());
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // Create request dispatcher wrappers around the views
-
-        page1Dispatcher.forward(req,resp);
+        page1Dispatcher.forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String name = req.getParameter("username");
-        String pass= req.getParameter("password");
+        String email = req.getParameter("email");
+        String pass = req.getParameter("password");
         String message;
 
-
-
-        if(userService.authenticate(name, pass)==false){
-            message="Sorry, "+name+" does not exist, or password is not correct";
-            req.setAttribute("message",message);
-
-            page1Dispatcher.forward(req,resp);
-
-        }else{
-
-            String buttonName="Users";
-            req.getSession().setAttribute("name",name);
-            req.getSession().setAttribute("buttonName",buttonName);
-
-            //Save the user for this session
-            req.getSession().setAttribute("user",userService.findByName(name));
-
-            //resp.sendRedirect("/webBootcamp/bootcamp");
-
-
+        if (email.isEmpty() || pass.isEmpty()) {
+            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+            page1Dispatcher.forward(req, resp);
+            return;
+        }
+        if (!userService.authenticate(email, pass)) {
+            message = "Sorry, " + email + " does not exist, or password is not correct";
+            req.setAttribute("message", message);
+            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/login.jsp");
+            page1Dispatcher.forward(req, resp);
+            return;
         }
 
+
+        //Save the user for this session
+        req.getSession().setAttribute("user", userService.findByEmail(email));
+
+
+        page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/register.jsp");
+        page1Dispatcher.forward(req, resp);
 
 
     }
