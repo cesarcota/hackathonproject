@@ -19,12 +19,23 @@
     <servlet-name>Login</servlet-name>
     <url-pattern></url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+
+
+
+
+  <servlet>
+    <servlet-name>Register</servlet-name>
+    <servlet-class>org.academiadecodigo.bootcamp.Controllers.RegisterController</servlet-class>
+  </servlet>
 
   <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.html</url-pattern>
+    <servlet-name>Register</servlet-name>
+    <url-pattern>/signup</url-pattern>
   </servlet-mapping>
-  
 
 
 </web-app>

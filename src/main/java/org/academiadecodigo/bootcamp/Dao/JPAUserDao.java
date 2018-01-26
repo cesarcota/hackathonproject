@@ -50,4 +50,15 @@ public class JPAUserDao implements UserDao  {
 
         return query.getResultList().size();
     }
+
+    @Override
+    public User findByEmail(String email) {
+
+        TypedQuery<User> query = session.getCurrentSession().createQuery("SELECT user FROM User user WHERE user.email = :email", User.class);
+        //TypedQuery<User> query = em.createQuery("SELECT user FROM User user WHERE user.username = :name", User.class);
+
+        query.setParameter("email", email);
+
+        return query.getSingleResult();
+    }
 }
