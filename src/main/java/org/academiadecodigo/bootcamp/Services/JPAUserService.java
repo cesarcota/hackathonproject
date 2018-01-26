@@ -86,7 +86,7 @@ public class JPAUserService implements UserService {
         }
         transaction.beginRead();
         try {
-            return userDao.findByName(email);
+            return userDao.findByEmail(email);
         }catch (NoResultException e){
 
             return null;
