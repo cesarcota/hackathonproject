@@ -84,7 +84,7 @@ public class JPAUserService implements UserService {
 
     @Override
     public User findByEmail(String email) {
-        if (email.isEmpty() || email == null){
+        if (email.isEmpty()){
             return null;
         }
         transaction.beginRead();

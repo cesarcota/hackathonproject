@@ -1,7 +1,16 @@
 org/academiadecodigo/bootcamp/Controllers/DashboardController.class
 org/academiadecodigo/bootcamp/AppMain.class
+org/academiadecodigo/bootcamp/Models/Type.class
 org/academiadecodigo/bootcamp/Controllers/GroupController.class
+org/academiadecodigo/bootcamp/utils/Security.class
 org/academiadecodigo/bootcamp/Controllers/RegisterController.class
+org/academiadecodigo/bootcamp/Controllers/LoginController.class
+org/academiadecodigo/bootcamp/Dao/GroupDao.class
 org/academiadecodigo/bootcamp/Controllers/GroupStats.class
+org/academiadecodigo/bootcamp/Models/Category.class
+org/academiadecodigo/bootcamp/Services/GroupService.class
 org/academiadecodigo/bootcamp/Controllers/GroupNewController.class
+org/academiadecodigo/bootcamp/Services/Main.class
+org/academiadecodigo/bootcamp/Dao/JPAGroupDao.class
 org/academiadecodigo/bootcamp/Services/JPAGroupService.class
+org/academiadecodigo/bootcamp/Models/Group.class

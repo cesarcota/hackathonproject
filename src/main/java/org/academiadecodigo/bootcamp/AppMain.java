@@ -55,7 +55,7 @@ public class AppMain implements ServletContextListener {
         ctx.setAttribute("UserService",userService);
 
         //Add the users
-        userService.addUser(new User("luis","12345","luis@gmail.com"));
+        userService.addUser(new User("luis","luis","luis"));
         userService.addUser(new User("ana","12345","ana@gmail.com"));
         userService.addUser(new User("ricardo","12345","ricardo@hotmail.com"));
 
