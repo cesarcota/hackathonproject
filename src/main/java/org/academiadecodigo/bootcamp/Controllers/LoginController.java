@@ -55,7 +55,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("user", userService.findByEmail(email));
 
 
-            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/dashboard.jsp");
+            page1Dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/group-new.jsp");
             page1Dispatcher.forward(req, resp);
 
             return;
